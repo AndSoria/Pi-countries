@@ -1,0 +1,16 @@
+.mainContainer{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 20px 0 20px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 90%;
+    height: 80px;
+    border: green 2px solid;
+    /* background: rgba(36, 36, 36, 0.945); */
+
+}

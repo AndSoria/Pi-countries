@@ -1,0 +1,11 @@
+.containerDetail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    height: 500px;
+    width: 700px;
+    border: solid red 3px;
+}

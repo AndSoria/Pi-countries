@@ -1,0 +1,16 @@
+
+.cardDetail{
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        flex-direction: column;
+        /* width: 1000px; */
+        /* margin-top: 80px; */
+        /* box-shadow: 0 8px 32px 0 #25272a; */
+        /* backdrop-filter: blur(20px); */
+        /* -webkit-backdrop-filter: blur(20px); */
+        border-radius: 30px;
+        border: fuchsia solid 2px;
+        height: 400px;
+        width: 400px;
+}
