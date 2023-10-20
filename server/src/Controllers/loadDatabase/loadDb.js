@@ -1,10 +1,10 @@
 
 const {Country}= require ('../../db')
-const allCountries = require('./allCountriesApi')
+const allCountriesApi = require('./allCountriesApi')
 
 const loadDb=async()=>{
 
-        const getCountries = await allCountries()
+        const getCountries = await allCountriesApi()
         
         Country.bulkCreate(getCountries)    
 

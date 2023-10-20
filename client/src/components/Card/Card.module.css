@@ -11,9 +11,10 @@
 .card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 320px; 
-    width: 410px;
+    width: 300px;
     margin: 20px;
     /* background-image: url('../../utils/image/Dark/Products\ -\ Clay.jpg'); */
     border-radius: 40px;
@@ -21,3 +22,8 @@
                -6px -6px 9px #464646;
   }
   
+  .image{
+    display: flex;
+    height: 100px;
+    width: 200px;
+}

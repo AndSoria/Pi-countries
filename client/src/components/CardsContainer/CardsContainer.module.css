@@ -1,11 +1,23 @@
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: 90px; */
-    flex-wrap: wrap;
-    border: red 1px solid;
-    width: 95%;
+    margin-top: 90px;
+    border: 1px solid red;
+    width: 100%;
+    box-sizing: border-box; /* Importante: Incluye el borde en el tamaño total */
+    padding: 20px; /* Añade espacio interno para que el contenido no se corte */
     
+  }
+
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+
 }
+

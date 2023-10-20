@@ -1,9 +1,11 @@
 
 import axios from 'axios'
+
 export const GET_COUNTRIES= 'GET_COUNTRIES'
 export const COUNTRY_ID= 'COUNTRY_ID'
 export const COUNTRY_NAME='COUNTRY_NAME'
-export const RESET_FILTERS ='RESET_FILTERS '
+export const RESET_FILTERS ='RESET_FILTERS'
+export const SORT_BY_NAME='SORT_BY_NAME'
 
 export const getCountries=()=>{
     return async function (dispatch){
@@ -53,4 +55,12 @@ export const resetFilters=()=>{
     return async function(dispatch){
         dispatch({type: RESET_FILTERS })
     }
+}
+
+export const sortName=(order)=>{
+
+    return async function(dispatch){
+        dispatch({type: SORT_BY_NAME, payload: order})
+    }
+
 }

@@ -1,5 +1,5 @@
 
-import { GET_COUNTRIES,COUNTRY_ID, COUNTRY_NAME, RESET_FILTERS } from "./action"
+import { GET_COUNTRIES,COUNTRY_ID, COUNTRY_NAME, RESET_FILTERS,SORT_BY_NAME } from "./action"
 
 const database=[
 	{
@@ -3004,6 +3004,81 @@ const database=[
 	}
 ]
 
+const activity=[
+    {
+      name: "Rock Climbing",
+      difficulty: 4,
+      duration: 6,
+      season: "summer",
+      countriesId: ["United States"]
+    },
+    {
+      name: "Mountain Biking",
+      difficulty: 3,
+      duration: 4,
+      season: "spring",
+      countriesId: ["Canada", "United States"]
+    },
+    {
+      name: "Surfing",
+      difficulty: 2,
+      duration: 3,
+      season: "summer",
+      countriesId: ["Australia", "Indonesia"]
+    },
+    {
+      name: "Hiking",
+      difficulty: 1,
+      duration: 3,
+      season: "autumn",
+      countriesId: ["Spain", "France"]
+    },
+    {
+      name: "Alpine Skiing",
+      difficulty: 4,
+      duration: 5,
+      season: "winter",
+      countriesId: ["Switzerland", "France", "Italy"]
+    },
+    {
+      name: "Rafting",
+      difficulty: 3,
+      duration: 3,
+      season: "spring",
+      countriesId: ["Costa Rica"]
+    },
+    {
+      name: "Mountaineering",
+      difficulty: 5,
+      duration: 8,
+      season: "summer",
+      countriesId: ["Nepal", "Peru"]
+    },
+    {
+      name: "Scuba Diving",
+      difficulty: 4,
+      duration: 5,
+      season: "summer",
+      countriesId: ["Australia", "Thailand"]
+    },
+    {
+      name: "Paragliding",
+      difficulty: 2,
+      duration: 3,
+      season: "spring",
+      countriesId: ["Switzerland", "Colombia", "Brazil"]
+    },
+    {
+      name: "Photographic Safari",
+      difficulty: 1,
+      duration: 6,
+      season: "winter",
+      countriesId: ["Kenya", "South Africa", "Tanzania"]
+    }
+  ]
+  
+  
+
 const initialState={
     
     allCountries:[],
@@ -3011,6 +3086,7 @@ const initialState={
     countriesByName:[],
     render:'allCountries',
     searchedValue:'',
+	getFiltered: allCountries,
 
 }
 const rootReducer=(state= initialState, action)=>{
@@ -3029,7 +3105,22 @@ const rootReducer=(state= initialState, action)=>{
                 countriesByName:[],
                 render:'allCountries',
                 searchedValue:'',
+				arrayOfFilters:[],
             }
+		case SORT_BY_NAME:
+			if(action.payload==="A"){
+
+				const orderAlfabetico=[...state.allCountries.sort((a,b)=>a.name.localeCompare(b.name))]
+				return{
+					...state, render: "getFiltered", getFiltered: orderAlfabetico
+				}
+			}
+			else{
+				const orderNoAlfabetico=[...state.allCountries.sort((b,a)=>b.name.localeCompare(a.name))]
+				return{
+					...state, render: "getFiltered", getFiltered: orderNoAlfabetico
+				}
+			}
         
         default: 
         return {...state};

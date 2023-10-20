@@ -8,9 +8,9 @@ const Card=(props)=>{
     
     return (
         <div className={style.card}>
-            <img src={imageFlag}/>
-            <a>name: {name}</a>
-            <a>continent: {continent}</a>
+            <img className={style.image} src={imageFlag}/>
+            <p>name: {name}</p>
+            <p>continent: {continent}</p>
 
             <Link to={`/detail/${id}`}>
                         <button className={style.linkButton}> Info </button>

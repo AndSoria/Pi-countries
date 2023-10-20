@@ -1,8 +1,10 @@
 import style from "./CardsContainer.module.css"
 import Card from '../Card/Card'
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getCountries } from "../../redux/action"
+import Pagination from "../Pagination/Pagination"
+
 
 const CardsContainer=()=>{
 
@@ -10,6 +12,16 @@ const CardsContainer=()=>{
     const renderState= useSelector(state=>state.render)
     const dispatch= useDispatch()
     let countries= stateGlobal[renderState]
+
+
+    //paginacion
+    const [page, setPage]=useState(1); //numero de pagina
+    const perPage=9; //cantidad de recetas por pagina
+    const maxPages= Math.ceil(countries?.length / perPage); //cantidad de paginas que vamos a tener
+    const from= (page-1) * perPage; //variable para indicar desde que elemento se va a realizar el slice del array
+    const until=from + perPage; //variable para indicar hasta que elemento se va a realizar el slice del array
+
+
 
     useEffect(()=>{
         if(renderState==='allCountries'){
@@ -20,8 +32,12 @@ const CardsContainer=()=>{
 
     return(
         <div className={style.container}>
+            
+                <Pagination page={page} setPage={setPage} maxPages={maxPages}/>
+           <div className={style.card}>
             {
-            countries.map((country)=>{
+            countries.slice(from,until).map((country)=>{
+
                     return <Card 
                         id={country.id}
                         name={country.name}
@@ -33,6 +49,7 @@ const CardsContainer=()=>{
                         population={country.population}
                         ></Card>
                 })}
+                </div>
         </div>
     )
 }

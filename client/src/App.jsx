@@ -7,9 +7,9 @@ import Home from './views/Home/Home'
 import Landing from './views/Landing/Landing'
 import Detail from './views/Detail/Detail'
 import Form from './views/Form/Form'
+import NavBar from './components/NavBar/NavBar'
 
 import { Route, Routes, useLocation } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
 
 function App() {
  
@@ -20,7 +20,7 @@ function App() {
 
       <div className="App">
   
-          {pathname !== '/' && <NavBar />} 
+        {pathname !== '/' && <NavBar />}
           {/* cuanto se encuentre en la landing page no se renderizara la NavBar */}
 
         <Routes >
