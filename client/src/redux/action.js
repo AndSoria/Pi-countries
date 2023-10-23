@@ -6,6 +6,10 @@ export const COUNTRY_ID= 'COUNTRY_ID'
 export const COUNTRY_NAME='COUNTRY_NAME'
 export const RESET_FILTERS ='RESET_FILTERS'
 export const SORT_BY_NAME='SORT_BY_NAME'
+export const FILTER_BY_CONTINENT= 'FILTER_BY_CONTINENT'
+export const SORT_BY_POPULATION='SORT_BY_POPULATION'
+export const GET_ACTIVITY='GET_ACTIVITY'
+export const FILTER_BY_ACTIVITY='FILTER_BY_ACTIVITY'
 
 export const getCountries=()=>{
     return async function (dispatch){
@@ -46,7 +50,7 @@ export const countryName=(name)=>{
             dispatch({type: COUNTRY_NAME, payload: countries, value: name})
             
         } catch (error) {
-            
+            alert (error.message)
         }
     }
 }
@@ -63,4 +67,32 @@ export const sortName=(order)=>{
         dispatch({type: SORT_BY_NAME, payload: order})
     }
 
+}
+
+export const filterByContinent=(continent)=>{
+    return async function(dispatch){
+        dispatch({type: FILTER_BY_CONTINENT, payload: continent})
+    }
+}
+
+export const sortPopulation=(value)=>{
+    return async function(dispatch){
+        dispatch({type: SORT_BY_POPULATION, payload: value})
+    }
+
+}
+
+export const allActivities=()=>{
+    return async function(dispatch){
+        const allActivities= await axios.get(`http://localhost:3001/activities`).then(result=>result.data)
+        console.log(allActivities)
+        dispatch({type: GET_ACTIVITY, payload: allActivities})
+    }
+}
+
+export const filterActivity=(option)=>{
+    return async function(dispatch){
+        console.log(option)
+        dispatch({type: FILTER_BY_ACTIVITY, payload: option})
+    }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import style from "./Card.module.css"
 import {Link} from 'react-router-dom'
 
@@ -9,11 +10,10 @@ const Card=(props)=>{
     return (
         <div className={style.card}>
             <img className={style.image} src={imageFlag}/>
-            <p>name: {name}</p>
-            <p>continent: {continent}</p>
-
+            <p>Name: {name}</p>
+            <p>Continent: {continent}</p>
             <Link to={`/detail/${id}`}>
-                        <button className={style.linkButton}> Info </button>
+                        <button className={style.linkButton}> + Info </button>
             </Link>
             
         </div>

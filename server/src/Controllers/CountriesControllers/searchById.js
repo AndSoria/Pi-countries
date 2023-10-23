@@ -20,7 +20,7 @@ const searchByID = async (prop) => {
     });
 
     return searchCountry;
-     
+    
   } catch (error) {
     console.error('Error en searchByID:', error);
     throw error;

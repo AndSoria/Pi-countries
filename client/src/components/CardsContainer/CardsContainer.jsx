@@ -28,7 +28,7 @@ const CardsContainer=()=>{
 
             dispatch(getCountries())
         }
-    },[renderState])
+    },[renderState,dispatch])
 
     return(
         <div className={style.container}>
@@ -39,6 +39,7 @@ const CardsContainer=()=>{
             countries.slice(from,until).map((country)=>{
 
                     return <Card 
+                        key={country.id}
                         id={country.id}
                         name={country.name}
                         imageFlag={country.imageFlag}

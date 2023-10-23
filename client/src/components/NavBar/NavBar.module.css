@@ -1,18 +1,35 @@
-.mainContainer {
+.mainContainer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin: 0 20px;
+  position: fixed; /* Cambiamos de fixed a sticky */
+  z-index: 1;
+  top: 0;
+  width: calc(100% - 40px);
+    /* max-width: 100%; */
+  height: 140px;
+  border: green 2px solid;
+}
+
+.containerButtons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0 20px;
-    /* padding: 0 20px; */
-    position: fixed; /* Cambiamos de fixed a sticky */
-    z-index: 1;
-    top: 0;
     width: calc(100% - 40px);
-    /* max-width: 100%; */
-    height: 80px;
-    border: green 2px solid;
+    border: yellow 2px solid;
   }
+
+.containerFilter{
+  display: flex;
+  flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 40px);
+    
+}
   
   body {
     margin: 0;

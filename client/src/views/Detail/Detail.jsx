@@ -11,7 +11,6 @@ const Detail=()=>{
 
     const {id}= useParams()
     const dispatch= useDispatch()
-
     const country= useSelector(state=>state.countryById)
 
     useEffect(()=>{
@@ -25,7 +24,6 @@ const Detail=()=>{
         
             <div className={style.containerDetail}>
 
-                
                     <CardDetail 
                         id={country.id}
                         name={country.name}
@@ -35,6 +33,7 @@ const Detail=()=>{
                         subregion={country.subregion}
                         area={country.area}
                         population={country.population}
+                        activities={country.Activities}
                 /> 
                 
             </div>
