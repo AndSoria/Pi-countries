@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 import Home from './views/Home/Home'
@@ -15,19 +14,20 @@ function App() {
  
 
   const {pathname} =useLocation(); 
+  const [filterApplied, setFilterApplied] = useState(false);
   // {/* con este hook  puedo saber en que ruta se encuentra */}
   return (
 
       <div className="App">
   
-        {pathname !== '/' && <NavBar />}
+        {pathname !== '/' && <NavBar setFilterApplied={setFilterApplied}/>}
           {/* cuanto se encuentre en la landing page no se renderizara la NavBar */}
 
         <Routes >
 
           <Route path='/' element={<Landing />} />
           
-          <Route path='/home' element={<Home />}/>
+          <Route path='/home' element={<Home filterApplied={filterApplied}/>}/>
   
           <Route path='/detail/:id' element={<Detail />}/>
   

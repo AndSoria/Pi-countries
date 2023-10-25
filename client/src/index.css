@@ -1,20 +1,20 @@
-:root {
+body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  /* background-color: #242424; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background-image: url("./assets/image/20512912.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -46,4 +46,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-

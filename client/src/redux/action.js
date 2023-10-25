@@ -10,6 +10,8 @@ export const FILTER_BY_CONTINENT= 'FILTER_BY_CONTINENT'
 export const SORT_BY_POPULATION='SORT_BY_POPULATION'
 export const GET_ACTIVITY='GET_ACTIVITY'
 export const FILTER_BY_ACTIVITY='FILTER_BY_ACTIVITY'
+export const ADD_FILTER_ARRAY= 'ADD_FILTER_ARRAY'
+export const REMOVE_FILTER_ARRAY= 'REMOVE_FILTER_ARRAY'
 
 export const getCountries=()=>{
     return async function (dispatch){
@@ -94,5 +96,31 @@ export const filterActivity=(option)=>{
     return async function(dispatch){
         console.log(option)
         dispatch({type: FILTER_BY_ACTIVITY, payload: option})
+    }
+}
+
+export const createActivity=(activity)=>{
+
+    return async function (){
+        try {
+             await axios.post('http://localhost:3001/activities', activity)
+        } catch (error) {
+            alert (error.message)
+        }
+    }
+    
+}
+
+export const addFilter=(value)=>{
+    return async function(dispatch){
+        
+        dispatch({type: ADD_FILTER_ARRAY, payload: value})
+    }
+}
+
+export const removeFilter=(value)=>{
+    return async function(dispatch){
+        
+        dispatch({type: REMOVE_FILTER_ARRAY, payload: value})
     }
 }

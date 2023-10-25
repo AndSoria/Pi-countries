@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import style from './Pagination.module.css'
 
 const Pagination =({page, setPage,maxPages})=>{

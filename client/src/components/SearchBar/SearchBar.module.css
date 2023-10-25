@@ -1,0 +1,23 @@
+.input {
+    border: 1px solid #1a1a1a; /* Borde similar al del botón */
+    border-radius: 8px;
+    padding: 5px 15px;
+    font-size: 1em;
+    font-weight: 00;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: white; /* Cambia el color del texto al blanco */
+    outline: none; /* Elimina el resplandor predeterminado al enfocar */
+    transition: border-color 0.25s;
+    width: 180px;
+    margin-right: 5px; /*
+  }
+  
+  .input:hover {
+    border-color: #646cff; /* Cambia el color del borde al pasar el cursor por encima */
+  }
+  
+  .input:focus,
+  .input:focus-visible {
+    border-color: #646cff; /* Cambia el color del borde al enfocar */
+  }

@@ -41,7 +41,7 @@ const SearchBar=()=>{
         <div className={style.searchBar}>
             <input type="text" name="text" className={style.input} required='' placeholder="Type name" value={searchName} onChange={handleChange} />
             <button type="button" className={style.button} disabled={searchName===''} onClick={handleSearch}>Search</button>
-            {valueSearch && <button  className={style.button} disabled={valueSearch===''} onClick={handleReset}>{valueSearch} X</button>}
+            {valueSearch && <button  className={style.button} disabled={valueSearch===''} onClick={handleReset}>{valueSearch} x</button>}
         </div>
     )
 }

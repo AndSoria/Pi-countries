@@ -1,22 +1,32 @@
+/* eslint-disable react/prop-types */
 import style from "./CardsContainer.module.css"
 import Card from '../Card/Card'
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { getCountries } from "../../redux/action"
+import { getCountries, allActivities  } from "../../redux/action"
 import Pagination from "../Pagination/Pagination"
 
 
-const CardsContainer=()=>{
+
+
+const CardsContainer=({ filterApplied})=>{
 
     const stateGlobal= useSelector(state=>state)
     const renderState= useSelector(state=>state.render)
+    const activity= useSelector(state=>state.activities)
+  
+
+    const actIdcountry=activity.flatMap((activitiy)=>activitiy.Countries.map((country)=>country.id))
+    const countryWithActivity= [...new Set(actIdcountry)]
+    console.log(countryWithActivity);
     const dispatch= useDispatch()
+
     let countries= stateGlobal[renderState]
 
 
     //paginacion
     const [page, setPage]=useState(1); //numero de pagina
-    const perPage=9; //cantidad de recetas por pagina
+    const perPage=10; //cantidad de paises por pagina
     const maxPages= Math.ceil(countries?.length / perPage); //cantidad de paginas que vamos a tener
     const from= (page-1) * perPage; //variable para indicar desde que elemento se va a realizar el slice del array
     const until=from + perPage; //variable para indicar hasta que elemento se va a realizar el slice del array
@@ -25,10 +35,14 @@ const CardsContainer=()=>{
 
     useEffect(()=>{
         if(renderState==='allCountries'){
-
+            dispatch(allActivities());
             dispatch(getCountries())
+            setPage(1)
         }
-    },[renderState,dispatch])
+        if (filterApplied) {
+            setPage(1); // Reinicia la página a 1 cuando se aplica un filtro
+          }
+    },[renderState,dispatch,filterApplied,setPage])
 
     return(
         <div className={style.container}>
@@ -48,6 +62,7 @@ const CardsContainer=()=>{
                         subregion={country.subregion}
                         area={country.area}
                         population={country.population}
+                        hasActivity={countryWithActivity.includes(country.id)}
                         ></Card>
                 })}
                 </div>
