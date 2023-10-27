@@ -1,16 +1,72 @@
 
-.cardDetail{
+.cardDetail {
         display: flex;
-        justify-content: center;
-        align-items: center; 
         flex-direction: column;
-        /* width: 1000px; */
-        /* margin-top: 80px; */
-        /* box-shadow: 0 8px 32px 0 #25272a; */
-        /* backdrop-filter: blur(20px); */
-        /* -webkit-backdrop-filter: blur(20px); */
-        border-radius: 30px;
-        border: fuchsia solid 2px;
+        justify-content: center;
+        align-items: center;
         height: 400px;
         width: 400px;
-}
+        border: 2px solid fuchsia;
+        border-radius: 30px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        /* Añadimos estos estilos para que se vea como una tarjeta */
+        box-shadow: 6px 6px 9px #262626, -6px -6px 9px #464646;
+        color: black;
+      }
+      
+      .cardDetail p {
+        margin: 0;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      
+      .data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 180px;
+        margin-top: 10px;
+      }
+      
+      .name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3px;
+      }
+      
+      .name h4 {
+        margin: 0;
+        font-size: 16px;
+      }
+      
+      .continent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3px;
+      }
+      
+      .continent h4 {
+        margin: 0;
+        font-size: 14px;
+      }
+      
+      .statusButton {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        width: 200px;
+      }
+      
+      .image {
+        height: 90px;
+        width: 180px;
+        border-radius: 20px;
+      }
