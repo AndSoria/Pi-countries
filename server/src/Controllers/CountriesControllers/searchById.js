@@ -11,7 +11,7 @@ const searchByID = async (prop) => {
       ), //*Tenemos una funcion where, dentro de esta tenemos otra funcion que toma la columna id y transforma sus valores en minusculas, para luego ser comparado con la el valor que se recibe por parametro
       include:[{
         model:Activity,
-        attributes:['id','name','duration','season', 'difficult'],
+        attributes:['id','name','duration','season', 'difficulty'],
         through:{
           model: country_activity,
           attributes:[]

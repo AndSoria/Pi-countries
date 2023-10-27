@@ -10,7 +10,7 @@ module.exports= (sequelize)=>{
             type: DataTypes.STRING,
             allowNull: false,
         },
-        difficult:{
+        difficulty:{
             type:DataTypes.INTEGER,
             allowNull:false,
             validate:{ //definimos el rango permitido
@@ -19,7 +19,7 @@ module.exports= (sequelize)=>{
             }
         },
         duration:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull:true,
         },
         season:{

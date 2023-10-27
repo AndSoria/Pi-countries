@@ -1,7 +1,7 @@
 const {Activity,Country, country_activity}= require('../../db')
 const searchById= require('../CountriesControllers/searchById')
 
-const postActivity=async(name, difficult, duration, season, countriesId)=>{
+const postActivity=async(name, difficulty, duration, season, countriesId)=>{
     let newActivity;
 
     console.log(countriesId);
@@ -9,7 +9,7 @@ const postActivity=async(name, difficult, duration, season, countriesId)=>{
     const existActivity= await Activity.findOne({where:{name:name}})
 
     if(existActivity===null){
-         newActivity= await Activity.create({name, difficult, duration, season})
+         newActivity= await Activity.create({name, difficulty, duration, season})
 
         countriesId.map(async countryId=>{
             const country= await searchById(countryId)

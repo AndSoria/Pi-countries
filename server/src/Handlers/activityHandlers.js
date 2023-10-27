@@ -9,8 +9,8 @@ const activityHandler=async( req, res)=>{
 }
 const activityPostHandler=async (req, res)=>{
     //se debe tomar la info por body
-    const {name, difficult, duration, season, countriesId}=req.body
-    const newActivity= await postActivity(name, difficult, duration, season, countriesId)
+    const {name, difficulty, duration, season, countriesId}=req.body
+    const newActivity= await postActivity(name, difficulty, duration, season, countriesId)
    
     res.status(200).send(newActivity);
 }

@@ -4,7 +4,7 @@ const getActivities=async()=>{
     const activities= await Activity.findAll({
         include:[{
             model:Country,
-            attributes:['id','name'],
+            attributes:['id','name','duration','season', 'difficulty'],
             through:{
               model: country_activity,
               attributes:[]
