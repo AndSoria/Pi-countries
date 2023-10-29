@@ -42,6 +42,12 @@
   width: 700px;
 }
 
+.containerName span{
+  margin-top: 2px;
+  margin-left: 15px;
+}
+
+
 .labelName {
   font-weight: bold;
   font-size: 16px;
@@ -85,6 +91,11 @@ input[type='range'] {
   /* border: green solid 3px; */
   width: 700px;
   margin-top: 10px;
+
+}
+.containerDuration span{
+  margin-top: 3px;
+  margin-left: 10px;
 }
 
 .labelDuration {
@@ -115,6 +126,11 @@ input[type='range'] {
   width: 700px;
 }
 
+.seasonContainer span{
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
 .listSeason {
   list-style-type: none;
   display: flex;
@@ -143,6 +159,11 @@ input[type='range'] {
   width: 700px;
   align-items: flex-start;
   height: 200px;
+}
+
+.containerCountry span{
+  margin-top: 3px;
+  margin-left: 15px;
 }
 
 .containerList{
@@ -208,4 +229,11 @@ input[type='range'] {
 .createButton:hover {
   box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222, inset -5px -5px 10px #444;
   color: #d6d6d6;
+}
+
+span{
+  font-size: 12px;
+  margin-left: 5px;
+  color: rgb(192, 0, 0);
+  font-weight: bold;
 }

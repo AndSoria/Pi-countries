@@ -1,72 +1,129 @@
-
 .cardDetail {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 400px;
-        width: 400px;
-        border: 2px solid fuchsia;
-        border-radius: 30px;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        /* Añadimos estos estilos para que se vea como una tarjeta */
-        box-shadow: 6px 6px 9px #262626, -6px -6px 9px #464646;
-        color: black;
-      }
-      
-      .cardDetail p {
-        margin: 0;
-        font-weight: bold;
-        font-size: 16px;
-      }
-      
-      .data {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        width: 180px;
-        margin-top: 10px;
-      }
-      
-      .name {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 3px;
-      }
-      
-      .name h4 {
-        margin: 0;
-        font-size: 16px;
-      }
-      
-      .continent {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 3px;
-      }
-      
-      .continent h4 {
-        margin: 0;
-        font-size: 14px;
-      }
-      
-      .statusButton {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 10px;
-        width: 200px;
-      }
-      
-      .image {
-        height: 90px;
-        width: 180px;
-        border-radius: 20px;
-      }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 600px;
+  width: 900px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #3a3a3a, #313131);
+  box-shadow: 12px 12px 24px #202020,
+              -12px -12px 24px #4c4c4c;
+  color:black;
+}
+.cardDetail h5 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  color: aliceblue;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  width: 820px;
+  margin-top: 30px;
+  /* border: 3px solid red; */
+  height: 260px;
+  margin-bottom: 10px;
+}
+
+.containerImg {
+  width: 400px;
+  height: 150px;
+  /* border: 3px solid green; */
+  border-radius: 20px;
+  overflow: hidden;
+  margin-left: 20px;
+  background: #363636;
+    box-shadow: inset 7px 7px 14px #202020,
+                inset -7px -7px 14px #4c4c4c;
+}
+
+.containerImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Para que la imagen se ajuste manteniendo su relación de aspecto */
+}
+
+.containerData {
+  display: flex;
+  flex-direction: column;
+  /* border: 3px solid brown; */
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 100px;
+  background: #363636;
+    box-shadow: inset 7px 7px 14px #202020,
+                inset -7px -7px 14px #4c4c4c;
+  border-radius: 20px;
+margin-left: 20px;
+margin-bottom: 10px;
+             
+
+}
+.labelData{
+  display: flex;
+  flex-direction: row;
+  /* border: 3px solid blue; */
+  min-width: 200px;
+  align-items: baseline;
+}
+
+.labelData label{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.labelData h5{
+  margin: 0;
+  font-size: 18px;
+  margin-left: 10px;
+  color:aliceblue;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.containerActivity{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:calc(100% - 80px);
+  /* border: pink solid 3px; */
+  min-height: 220px;
+}
+
+.title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  /* border: greenyellow solid 3px; */
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: inset 7px 7px 14px #202020,
+              inset -7px -7px 14px #4c4c4c;
+}
+
+.title p{
+  /* margin: 0; */
+  font-size: 14px;
+  color:aliceblue;
+}
+.activity{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:calc(100% - 80px);
+  /* border: pink solid 3px; */
+  min-height: 220px;
+  gap: 2em;
+  margin-top: 10px;
+ 
+}

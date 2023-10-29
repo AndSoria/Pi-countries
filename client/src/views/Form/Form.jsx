@@ -16,7 +16,7 @@ const Form=()=>{
         difficulty:1,
         duration:'',
         season:'',
-        countriesId:[]
+        countriesId:''
 
     })
 
@@ -24,39 +24,41 @@ const Form=()=>{
 
     useEffect(()=>{
    
+      
         dispatch(getCountries())
-    
+       
+            
+      
+
 },[dispatch])
 
-    const difficultyChange=(e)=>{
-        const { name, value } = e.target;
-        console.log(name, value);
-        if(name === 'difficulty'){
-            
-            switch (e.target.value) {
+    
+    const difficultyChange=(value)=>{
+    
+            switch (value) {
                 
-                case '1':
+                case 1:
                     return 'Very easy'
-                case '2':
+                case 2:
                     return 'Easy'
-                case '3':
+                case 3:
                     return 'Medium'
-                case '4':
+                case 4:
                     return 'Hard'
-                case '5':
+                case 5:
                     return 'Very hard'
                 default:
                     break;
             }
-    }
+    
 }
   const [errors, setErrors] = useState({
-    name:'',
+    name:'Required',
     difficulty:'',
-    duration:'',
-    season:'',
-    countriesId:'',
-    enable:true,
+    duration:'Required',
+    season:'Required',
+    countriesId:'Choose at least one country',
+    enable:false,
   });
 
   const validate=async(state, property)=>{
@@ -68,39 +70,47 @@ const Form=()=>{
 
     switch(property) {
         case 'name':
-            if(state.name.trim()===''){
-                await setErrors({...errors, name:'Requerido',enable:false})
+            if(state.name.trim()==='' ){
+                await setErrors({...errors, name:'Required',enable:false})
+                console.log(errors);
             }
             else{
                 if(!nameRegex.test(state.name)){
                     await setErrors({...errors, name:'Only letters',enable:false})
                 }else{
                     await setErrors({...errors, name:'',enable:true})
+                    console.log(errors);
                 }
             }
             break;
         case 'duration':
             if(state.duration.trim()===''){
                 await setErrors({...errors, duration:'Required',enable:false})
+                console.log(errors);
             }else{
                 if(!regexDuration.test(state.duration)){
                     await setErrors({...errors, duration:'Wrong value',enable:false})
+                    console.log(errors);
                 }
                 else{
                     await setErrors({...errors, duration:'',enable:true})
+                    console.log(errors);
                 }
             }
             break;    
         case 'season':
             if(!arraySeason.includes(state.season) || state.season ===''){
                 await setErrors({...errors, season:'Choose an option',enable:false})
+                console.log(errors);
             }
             else{
                 await setErrors({...errors, season:'',enable:true})
+                console.log(errors);
             }
             break;
         case 'countriesId':
-            if(state.countriesId.length<=0){
+            console.log(state.countriesId.length);
+            if(state.countriesId.length===0){
                 await setErrors({...errors, countriesId:'Choose at least one country',enable:false})
             }
             else{
@@ -113,44 +123,53 @@ const Form=()=>{
     }
   }
  
-const handleInputChange = (e) => {
+const handleInputChange = async(e) => {
     const value  = e.target.value;
     const property  = e.target.name;
     console.log(property, value);
-    
-        setActivityData({ ...activityData, [property]: value });
-        validate({...activityData,[property]:value},property)
-        setValueDifficulty(difficultyChange(e))
 
+    if(property === 'difficulty'){
+
+        setValueDifficulty(difficultyChange(Number(value)))
+    }
+    setActivityData({ ...activityData, [property]: value });
+    validate({...activityData,[property]:value},property)
+    
 }
 
-const handleAddCountry=(e)=>{
+const handleAddCountry=async(e)=>{
     const {name, value}= e.target
     console.log(name, value)
     if(!activityData.countriesId.includes(value)){
 
-        validate({...activityData, countriesId:[...activityData.countriesId,value]})
-        setActivityData({...activityData, countriesId: [...activityData.countriesId, value]})
+        await validate({...activityData, countriesId:[...activityData.countriesId,value]},'countriesId')
+        await setActivityData({...activityData, countriesId: [...activityData.countriesId, value]})
     }
 
 }
 
-const handleRemoveCountry=(e)=>{
+const handleRemoveCountry=async(e)=>{
     const value= e.target.value
 
-    validate({ 
-        ...activityData,
-        countriesId: activityData.countriesId.filter(country=>country !=value)})
-    
-    setActivityData({
+    await  validate({ 
+         ...activityData,
+         countriesId: activityData.countriesId.filter(country=>country !=value)},'countriesId')
+   await setActivityData({
         ...activityData,
         countriesId: activityData.countriesId.filter(country=>country !=value)
     })
+    
 }
 
-const handleSubmit=(e)=>{
+const handleSubmit=async(e)=>{
     e.preventDefault()
-    dispatch(createActivity(activityData))
+    console.log(activityData)
+    await dispatch(createActivity(activityData))
+   setActivityData({ name:'',
+        difficulty:1,
+        duration:'',
+        season:'',
+        countriesId:''})
 }
 
 
@@ -182,14 +201,14 @@ console.log(activityData)
 
                 <input type='range' min='1' max='5' name='difficulty' value={activityData.difficulty} className={style.inputName} onChange={handleInputChange}></input>
 
-                <label htmlFor="valueDifficulty" className={style.labelValueDifficulty}>{valueDifficulty}</label>
+                <label htmlFor="difficulty" className={style.labelValueDifficulty}>{valueDifficulty}</label>
                 
             </div>
 
 
             <div className={style.containerDuration}>
 
-                    <label htmlFor="activityDuration" className={style.labelDuration}>Duration</label>
+                    <label htmlFor="duration" className={style.labelDuration}>Duration</label>
                     <input
                         type="text"
                         id="duration"
@@ -199,7 +218,8 @@ console.log(activityData)
                         onChange={handleInputChange}
                         required
                     />
-                    <label htmlFor='hs' className={style.labelHs}>hs</label>
+                    <label htmlFor='duration' className={style.labelHs}>hs</label>
+
                     {errors.duration  && <span>{errors.duration}</span>}
             </div>
 
@@ -230,8 +250,8 @@ console.log(activityData)
                 <div className={style.containerList}>
 
                     <label htmlFor="activityCountries" className={style.labelName}>Country</label>
-                    <select onChange={handleAddCountry} name='countriesId' className={style.listSelect}>
-                        <option disabled selected value> Select a country </option>
+                    <select value='' onChange={handleAddCountry} name='countriesId' className={style.listSelect}>
+                        <option value=''> Select a country </option>
                         {
                             countries.map((country)=>{return <option key={country.id} value={country.id}>{country.name}</option>})
                         }
@@ -248,7 +268,7 @@ console.log(activityData)
             </div>
 
         </div>
-            <button type="submit" disabled={errors.enable===true} className={style.createButton}>
+            <button type="submit" disabled={!errors.enable} className={style.createButton}>
                  Submit
             </button>
       </form>

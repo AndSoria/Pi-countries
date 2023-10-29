@@ -3184,13 +3184,17 @@ const rootReducer=(state= initialState, action)=>{
                         console.log(countryWithActivity);
                         
                         if(action.payload==="allActivities"){
-                            
-                            const countriesByActivities= state.allCountries.filter((country)=>{return countryWithActivity.includes(country.id)})
-                            console.log(countriesByActivities);
-                            
+
                             return{
-                                ...state, render:'getFiltered', getFiltered: countriesByActivities 
+                                ...state, render:'activities'
                             }
+                            
+                            // const countriesByActivities= state.allCountries.filter((country)=>{return countryWithActivity.includes(country.id)})
+                            // console.log(countriesByActivities);
+                            
+                            // return{
+                            //     ...state, render:'getFiltered', getFiltered: countriesByActivities 
+                            //!Acaa estamos probando renderizar todas las actividades como cards individuales }
                         }
                         else{
                             console.log(action.payload); //limpiar este bloque de codigo
