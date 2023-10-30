@@ -17,8 +17,8 @@ const Continent=({setFilterApplied})=>{
 
     return(
         <div className={style.filterContinent}>
-            <select className={style.continents} onChange={handleContinent}>
-                <option disabled selected value="">Continent</option>
+            <select value='' className={style.continents} onChange={handleContinent}>
+                <option value="">Continent</option>
                 <option value="All">All continents</option>
                 <option value="Africa">Africa</option>
                 <option value="Antarctica">Antarctica</option>

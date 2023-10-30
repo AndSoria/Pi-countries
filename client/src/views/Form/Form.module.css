@@ -11,9 +11,10 @@
   border-radius: 40px;
   margin-top: 100px;
   height: 500px;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  box-shadow: 6px 6px 9px #262626, -6px -6px 9px #464646;
+  background-image: url('../../assets/image/pexels-rachel-claire-4992673.jpg');
+  background-size: cover;
+ 
+  
 }
 
 
@@ -21,7 +22,6 @@
 .containerForm {
   display: flex;
   flex-direction: column;
-  /* border: yellow solid 3px; */
   width: 700px;
   height: 400px;
   justify-content: flex-start;
@@ -32,6 +32,8 @@
   font-size: 24px;
   margin-top: 15px;
   margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .containerName{
@@ -45,6 +47,7 @@
 .containerName span{
   margin-top: 2px;
   margin-left: 15px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 
@@ -52,6 +55,7 @@
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 4px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 .inputName {
   border-radius: 5px;
@@ -72,6 +76,7 @@
  font-weight: bold;
   font-size: 16px;
   margin-bottom: 4px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 input[type='range'] {
@@ -82,6 +87,7 @@ input[type='range'] {
   font-weight: bold;
   font-size: 12px;
   margin-top: 2px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .containerDuration{
@@ -96,12 +102,14 @@ input[type='range'] {
 .containerDuration span{
   margin-top: 3px;
   margin-left: 10px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .labelDuration {
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 4px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .inputDuration{
@@ -115,6 +123,7 @@ input[type='range'] {
   font-size: 16px;
   margin-bottom: 4px;
   margin-left: 5px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .seasonContainer {
@@ -124,11 +133,13 @@ input[type='range'] {
   border-radius: 5px;
   margin-top: 20px;
   width: 700px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .seasonContainer span{
   margin-top: 5px;
   margin-left: 10px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .listSeason {
@@ -140,6 +151,7 @@ input[type='range'] {
   margin: 0;
   width: fit-content;
   margin-left: 30px;
+  
 }
 
 .listSeason li {
@@ -148,6 +160,7 @@ input[type='range'] {
   margin: 0;
   padding: 0;
   margin-right: 20px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .containerCountry{
@@ -164,6 +177,7 @@ input[type='range'] {
 .containerCountry span{
   margin-top: 3px;
   margin-left: 15px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .containerList{
@@ -172,6 +186,7 @@ input[type='range'] {
   flex-direction: row;
   width: fit-content;
   height: 30px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 
 .listSelect{

@@ -1,29 +1,22 @@
-
-
+/* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
-import style from './Landing.module.css'
+import style from './Landing.module.css';
 
-
-const Landing=()=>{
+const Landing = () => {
     return (
         <div className={style.landingContainer}>
-            <h1 className={style.title}>Henry travel</h1>
-           <p className={style.text}>¡Bienvenido a "Henry Food"! Este proyecto se centra en la implementación de conocimientos y el desarrollo de habilidades técnicas en la carrera "Full Stack".
+            <h1 className={style.title}>¡Bienvenido a "Henry World"!</h1>
+            <p className={style.text}>
+                Este proyecto se centra en la implementación de conocimientos y el desarrollo de habilidades técnicas en la carrera "Full Stack Developer". En esta plataforma digital, podrás explorar información detallada sobre países y las actividades relacionadas con ellos, además de planificar tus próximas aventuras.
 
-En esta plataforma digital, podrás explorar una amplia variedad de recetas que se adapten a tus gustos culinarios, junto con información detallada sobre cada una de ellas. Además, tienes la capacidad de crear y compartir tus propias recetas con la comunidad.
-
-Te invitamos a explorar "Henry Food" y esperamos que tengas una experiencia única y de excelencia mientras te sumerges en el mundo de la cocina y la tecnología.
-
-<br></br>
-<br></br>
-    <p className={style.autor}>Andrés Soria pt13b</p>
-    </p>
-           <Link to='/home'>
-                <button className={style.btn} >Ingresar</button>
-           </Link>
+                Te invitamos a explorar "Henry World" y esperamos que tengas una experiencia única y de excelencia mientras te sumerges en el mundo de los viajes y la tecnología.
+            </p>
+            <p className={style.autor}>Andrés Soria pt14b</p>
+            <Link to='/home'>
+                <button className={style.btn}>Ingresar</button>
+            </Link>
         </div>
-
-    )
+    );
 }
 
 export default Landing;

@@ -22,8 +22,8 @@ const Activity = ({setFilterApplied}) => {
 
   return (
     <div className={style.actContainer}>
-      <select className={style.option} onChange={handleActivity}>
-        <option disabled selected value>Activities</option>
+      <select value='' className={style.option} onChange={handleActivity}>
+        <option  value=''>Activities</option>
         <option value="allActivities">All activities</option>
         
         {

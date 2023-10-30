@@ -16,8 +16,8 @@ const Order=({setFilterApplied})=>{ //este comonente orden en orden alfabetico y
 
     return (
         <div className={style.orderContainer}>
-           <select className={style.orders} onChange={handleOrder}>
-                <option disabled selected value="">Order</option>
+           <select value='' className={style.orders} onChange={handleOrder}>
+                <option value=''>Order</option>
                 
                 <option className={style.option} value="A">A-Z</option>
                 <option className={style.option} value="D">Z-A</option>

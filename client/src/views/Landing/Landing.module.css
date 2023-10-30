@@ -10,20 +10,27 @@
 } 
 
 .title{
-    color: aliceblue;
+    /* color: black; */
     font-family:'Burger';
     font-size: 50px;
     margin-bottom: 5px;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9); 
     
+    
+}
+.title h1 {
+  -webkit-text-stroke: 2px black; 
+  color: white;
 }
 
 .text{
+  display:flex;
 height: 200px;
 width: 80%;
 padding: 30px;
 font-size: 20px;
-color: aliceblue;
+color: black;
+align-items: center;
     
 background: rgba(255, 255, 255, 0.21);
 border-radius: 16px;
@@ -33,7 +40,8 @@ backdrop-filter: blur(4.8px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 
 .autor{
-        font-size: 16px;
+        font-size: 25px;
+        color: black;
     }
 }
 
@@ -48,7 +56,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   
     font-weight: 600;
     letter-spacing: 2px;
-    background: transparent;
+    /* background: transparent; */
     color: #fff;
     overflow: hidden;
     box-shadow: 0 0 0 0 transparent;

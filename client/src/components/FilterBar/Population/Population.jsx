@@ -17,8 +17,8 @@ const Population=({setFilterApplied})=>{
     return (
 
         <div className={style.populationContainer} onChange={handlePopulation}>
-            <select className={style.population}>
-                <option disabled selected value="">Population</option>
+            <select value='' className={style.population}>
+                <option value="">Population</option>
                 <option className={style.option} value="HIGH_TO_LOW">High to Low</option>
                 <option className={style.option} value="LOW_TO_HIGH">Low to High</option>
             </select>
