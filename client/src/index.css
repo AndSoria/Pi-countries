@@ -31,10 +31,10 @@ button:hover {
   border-color: green;
 
 }
+
 button:focus,
 button:focus-visible {
- 
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {

@@ -109,28 +109,24 @@ const rootReducer=(state= initialState, action)=>{
                         console.log(countryWithActivity);
                         
                         if(action.payload==="allActivities"){
+
                             const countriesByActivities= state.allCountries.filter((country)=>{return countryWithActivity.includes(country.id)})
-                            console.log(countriesByActivities);
+                            
                             return{
                                 ...state, render:'activities',getFiltered: countriesByActivities 
                             }
                             
-                            // const countriesByActivities= state.allCountries.filter((country)=>{return countryWithActivity.includes(country.id)})
-                            // console.log(countriesByActivities);
-                            
-                            // return{
-                            //     ...state, render:'getFiltered', getFiltered: countriesByActivities 
-                            //!Acaa estamos probando renderizar todas las actividades como cards individuales }
+            
                         }
                         else{
-                            console.log(action.payload); //limpiar este bloque de codigo
+                           
                             
                             const activitiesByName= state.activities.filter((activitiy)=>activitiy.name===action.payload)
+
                             const idByActivity=activitiesByName.flatMap((activitiy)=>activitiy.Countries.map((country)=>country.id))
-                            console.log(activitiesByName);
-                            console.log(idByActivity);
+                            
                             const countriesByActivity = state.getFiltered.filter((country) => idByActivity.some((id) => id === country.id));
-                            console.log(countriesByActivity);
+                           
                             return {
                                 ...state, render:'getFiltered', getFiltered: countriesByActivity
                             }

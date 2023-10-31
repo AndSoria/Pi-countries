@@ -18,8 +18,8 @@ server.listen(PORT, async() => {
     await loadActivities()
     
   }
-  await filterContinent()
-  await onlyCountriesName()
+  // await filterContinent()
+  // await onlyCountriesName()
   console.log(`Server listening on port ${PORT}`);
 })
 }).catch(error => console.error(error))

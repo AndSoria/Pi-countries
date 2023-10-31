@@ -1,23 +1,48 @@
 .input {
-    border: 1px solid #1a1a1a; /* Borde similar al del botón */
+    /* border: 1px solid  rgba(0, 0, 0, 0.7) ; Borde similar al del botón */
     border-radius: 8px;
     padding: 5px 15px;
     font-size: 1em;
     font-weight: 00;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background: #333;
     color: white; /* Cambia el color del texto al blanco */
     outline: none; /* Elimina el resplandor predeterminado al enfocar */
     transition: border-color 0.25s;
+    border:none;
     width: 180px;
-    margin-right: 5px; /*
-  }
-  
-  .input:hover {
-    border-color: #646cff; /* Cambia el color del borde al pasar el cursor por encima */
+    margin-right: 5px; 
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+
   }
   
   .input:focus,
   .input:focus-visible {
-    border-color: #646cff; /* Cambia el color del borde al enfocar */
+    border: 1px solid green ;
+   
+  }
+
+  .btn {
+    margin: 12px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background: #333;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+    /* font-family: 'Damion', cursive; */
+    /* border: none; */
+    font-size: 14px;
+    /* color: rgb(161, 161, 161); */
+    color: aliceblue;
+    transition: 500ms;
+  }
+  
+  .btn:hover {
+    
+    border-color: green;
+    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222, inset -5px -5px 10px #444;
+    /* color: #d6d6d6; */
+    transition: 500ms;
   }

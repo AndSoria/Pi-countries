@@ -84,7 +84,7 @@ const Form=()=>{
             }
             break;
         case 'duration':
-            if(state.duration.trim()===''){
+            if(state.duration===''){
                 await setErrors({...errors, duration:'Required',enable:false})
                 console.log(errors);
             }else{
@@ -131,11 +131,24 @@ const handleInputChange = async(e) => {
     if(property === 'difficulty'){
 
         setValueDifficulty(difficultyChange(Number(value)))
+        setActivityData({ ...activityData, [property]: Number(value) });
+        validate({...activityData,[property]:Number(value)},property)
     }
-    setActivityData({ ...activityData, [property]: value });
-    validate({...activityData,[property]:value},property)
-    
+    else{
+        if(property=== 'duration'){
+            setActivityData({ ...activityData, [property]: Number(value) });
+         validate({...activityData,[property]:Number(value)}, property)
+         }
+        
+        else{
+
+            setActivityData({ ...activityData, [property]: value });
+            validate({...activityData,[property]:value},property)
+        }
+    }
 }
+    
+
 
 const handleAddCountry=async(e)=>{
     const {name, value}= e.target
@@ -161,10 +174,11 @@ const handleRemoveCountry=async(e)=>{
     
 }
 
-const handleSubmit=async(e)=>{
+const handleSubmit=(e)=>{
     e.preventDefault()
-    console.log(activityData)
-    await dispatch(createActivity(activityData))
+    
+   dispatch(createActivity(activityData))
+
    setActivityData({ name:'',
         difficulty:1,
         duration:'',
@@ -182,7 +196,7 @@ console.log(activityData)
         <div className={style.containerForm}>
             <div className={style.containerName}>
 
-                <label htmlFor="activityName" className={style.labelName}>Name</label>
+                <label htmlFor="name" className={style.labelName}>Name</label>
                 <input
                     type="text"
                     id="name"
@@ -190,7 +204,7 @@ console.log(activityData)
                     value={activityData.name}
                     className={style.inputName}
                     onChange={handleInputChange}
-                    required
+                    
                 />
                 {errors.name && <span>{errors.name}</span>}
             </div>
@@ -249,7 +263,7 @@ console.log(activityData)
             <div className={style.containerCountry}>
                 <div className={style.containerList}>
 
-                    <label htmlFor="activityCountries" className={style.labelName}>Country</label>
+                    <label htmlFor="countriesId" className={style.labelName}>Country</label>
                     <select value='' onChange={handleAddCountry} name='countriesId' className={style.listSelect}>
                         <option value=''> Select a country </option>
                         {

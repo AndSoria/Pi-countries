@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 
+
 export const GET_COUNTRIES= 'GET_COUNTRIES'
 export const COUNTRY_ID= 'COUNTRY_ID'
 export const COUNTRY_NAME='COUNTRY_NAME'
@@ -99,17 +100,15 @@ export const filterActivity=(option)=>{
     }
 }
 
-export const createActivity=(activity)=>{
-
-    return async function (){
-        try {
-             await axios.post('http://localhost:3001/activities', activity)
-        } catch (error) {
-            alert (error.message)
-        }
+export const createActivity = async (activity) => {
+    try {
+      const response = await axios.post('http://localhost:3001/activities', activity);
+      window.alert(response.data); 
+    } 
+    catch (error) {
+        window.alert(error.response.data.error)
     }
-    
-}
+  }
 
 export const addFilter=(value)=>{
     return async function(dispatch){

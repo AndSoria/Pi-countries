@@ -15,23 +15,26 @@ const SearchBar=()=>{
     const dispatch= useDispatch()
 
     const handleChange=(e)=>{
-        setSearchName(e.target.value)//toma el valor del input y lo agrega al estado local
+            setSearchName(e.target.value)//toma el valor del input y lo agrega al estado local
     }
 
     const handleSearch=()=>{
-        try {
+        const nameRegex = /^[A-Za-z\s]+$/;
             if(searchName.trim()===''){
-                throw alert('Debe ingresar un valor')
+                setSearchName('')
+                throw alert('Please enter a value')
             }
+            if(!nameRegex.test(searchName)){
+                setSearchName('')
+                throw alert('Please enter only letters') 
+            }
+    
             dispatch(countryName(searchName)); //llama a la action que realiza la busqueda
             setSearchName('')// una vez que se aprieta el boton, limpia el input
-        } catch (error) {
-            throw alert(error.message)
-        }
+        
     }
 
     const handleReset=()=>{
-        
             dispatch(resetFilters())
     }
 
@@ -40,8 +43,8 @@ const SearchBar=()=>{
     return(
         <div className={style.searchBar}>
             <input type="text" name="text" className={style.input} required='' placeholder="Type name" value={searchName} onChange={handleChange} />
-            <button type="button" className={style.button} disabled={searchName===''} onClick={handleSearch}>Search</button>
-            {valueSearch && <button  className={style.button} disabled={valueSearch===''} onClick={handleReset}>{valueSearch} x</button>}
+            <button type="button" className={style.btn} disabled={searchName===''} onClick={handleSearch}>Search</button>
+            {valueSearch && <button  className={style.btn} disabled={valueSearch===''} onClick={handleReset}>{valueSearch} x</button>}
         </div>
     )
 }

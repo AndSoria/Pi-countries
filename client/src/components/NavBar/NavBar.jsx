@@ -12,10 +12,10 @@ const NavBar=({setFilterApplied})=>{
             <div className={style.containerButtons}>
                 <h2>Henry travel</h2>
                 <Link to='/home'>
-                    <button >Home</button>
+                    <button className={style.btn} >Home</button>
                 </Link>
                 <Link to='/form'>
-                    <button >Create activity</button>
+                    <button className={style.btn}>Create activity</button>
                 </Link>
                 {(!pathname.includes('detail')&&!pathname.includes('form')&&<SearchBar setFilterApplied={setFilterApplied}/>)}
             </div>
