@@ -6,7 +6,7 @@ const loadDb=async()=>{
 
         const getCountries = await allCountriesApi()
         
-        Country.bulkCreate(getCountries)    
+        await Country.bulkCreate(getCountries)    
 
         console.log('Database loaded'); 
 }

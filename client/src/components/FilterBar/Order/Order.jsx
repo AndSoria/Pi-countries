@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from 'react-redux'
 import style from "./Order.module.css"
-import { sortName } from '../../../redux/action';
+import { addFilter, sortName } from '../../../redux/action';
 
 const Order=({setFilterApplied})=>{ //este comonente orden en orden alfabetico y viceversa
 
@@ -12,6 +12,7 @@ const Order=({setFilterApplied})=>{ //este comonente orden en orden alfabetico y
     
              dispatch(sortName(newOrder)) //a
              setFilterApplied(true)
+             dispatch(addFilter('order', newOrder))
         }
 
     return (

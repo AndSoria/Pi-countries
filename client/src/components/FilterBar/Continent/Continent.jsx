@@ -8,8 +8,11 @@ const Continent=({setFilterApplied})=>{
 
     const handleContinent=async(e)=>{
         const continent= e.target.value
-       await dispatch(filterByContinent(continent))
-        await dispatch(addFilter(continent))
+        
+        await dispatch(filterByContinent(continent))
+
+        await dispatch(addFilter('continent', continent))
+
         console.log(continent);
         setFilterApplied(true)
     }

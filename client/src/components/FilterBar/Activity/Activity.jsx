@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
-import { allActivities, filterActivity } from '../../../redux/action';
+import { addFilter, allActivities, filterActivity, resetFilters } from '../../../redux/action';
 import style from './Activity.module.css';
 
 const Activity = ({setFilterApplied}) => {
@@ -14,9 +14,15 @@ const Activity = ({setFilterApplied}) => {
 
   const handleActivity = (e) => {
     const option = e.target.value;
-    console.log(option);
+    
     setFilterApplied(true)
+    
+    if(option ==='allActivities'){
+      dispatch(resetFilters())
+    }
     dispatch(filterActivity(option));
+
+    dispatch(addFilter('activities',option));
     
   };
 

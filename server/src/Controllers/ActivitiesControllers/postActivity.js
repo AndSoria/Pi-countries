@@ -16,9 +16,10 @@ const postActivity = async (name, difficulty, duration, season, countriesId) => 
       }
     });
     return 'Successfully created activity';
-  } else {
-    const error = new Error('Activity already exists');
-    return error;
+  } 
+  else {
+        const error = new Error('Activity already exists');
+        return error;
   }
 };
 

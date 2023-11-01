@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useDispatch } from 'react-redux'
 import style from './Population.module.css'
-import {sortPopulation} from '../../../redux/action'
+import {addFilter, sortPopulation} from '../../../redux/action'
 
 const Population=({setFilterApplied})=>{
 
@@ -12,6 +12,7 @@ const Population=({setFilterApplied})=>{
 
         dispatch(sortPopulation(value))
         setFilterApplied(true)
+        dispatch(addFilter('population', value))
 
     }
     return (

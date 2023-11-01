@@ -1,0 +1,55 @@
+.containerFilter {
+    position: relative; /* Agrega una posición relativa al contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 270px;
+    margin-right: 30px;
+    width: 150px;
+    height: fit-content;
+    border-radius: 30px;
+    padding-bottom: 30px;
+    border: solid #252525 1px;
+    background: linear-gradient(145deg, #3a3a3a, #313131);
+    box-shadow: 12px 12px 24px #202020, -12px -12px 24px #4c4c4c;
+}
+
+h3 {
+    
+    background: #363636;
+    box-shadow: inset 7px 7px 14px #202020, inset -7px -7px 14px #4c4c4c;
+    border-radius: 30px;
+    width: 90px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+ h5 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.btn {
+    position: absolute; /* Cambia a posición absoluta */
+    bottom: -15px; /* Ancla el botón al borde inferior */
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 60px;
+    height: 30px;
+    /* z-index: 1; */
+    box-shadow: -5px -5px 15px #202020, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+    transition: box-shadow 0.2s;
+}
+
+.btn:hover {
+    box-shadow: -2px -2px 5px #888, 2px 2px 5px #666, inset 2px 2px 4px #888, inset -2px -2px 4px #666;
+    color: #fff;
+}

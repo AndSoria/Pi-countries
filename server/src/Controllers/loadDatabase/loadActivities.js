@@ -3,7 +3,7 @@ const activitiesDb = require ('../../../api/activitiesDb');
 const postActivity = require('../ActivitiesControllers/postActivity');
 const loadActivities=async()=>{
     
-   activitiesDb.map((activity)=>postActivity(activity.name, activity.difficulty, activity.duration, activity.season, activity.countriesId))
+   await activitiesDb.map((activity)=>postActivity(activity.name, activity.difficulty, activity.duration, activity.season, activity.countriesId))
    console.log('Activities created');
 }
 

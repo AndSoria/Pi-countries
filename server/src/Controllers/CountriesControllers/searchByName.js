@@ -6,8 +6,12 @@ const searchByName= async(prop)=>{
     
     const filterByName= await countries.filter((country) => country.name.toLowerCase().includes(prop.toLowerCase()))
    
-return filterByName.length >0 ? filterByName : 'No hay paises relacionados con el valor de busqueda'
-   
+    if (filterByName.length > 0) {
+        return filterByName;
+      }
+    else {
+        throw Error('Countries not found');
+      }
 }
 
 

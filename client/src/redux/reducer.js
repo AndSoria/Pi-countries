@@ -4,7 +4,7 @@
 
   
 
-import { GET_COUNTRIES,COUNTRY_ID, COUNTRY_NAME, RESET_FILTERS,SORT_BY_NAME, FILTER_BY_CONTINENT, GET_ACTIVITY,FILTER_BY_ACTIVITY, SORT_BY_POPULATION, ADD_FILTER_ARRAY, REMOVE_FILTER_ARRAY } from "./action"
+import { GET_COUNTRIES,COUNTRY_ID, COUNTRY_NAME, RESET_FILTERS,SORT_BY_NAME, FILTER_BY_CONTINENT, GET_ACTIVITY,FILTER_BY_ACTIVITY, SORT_BY_POPULATION, ADD_FILTER} from "./action"
   
 
 const initialState={
@@ -16,7 +16,7 @@ const initialState={
     searchedValue:'',
 	getFiltered: [],
     activities:[],
-    arrayFilters:[],
+    filters:{ order:'',population:'', continent:'',activity:[] }
 }
 
 
@@ -30,7 +30,8 @@ const rootReducer=(state= initialState, action)=>{
             case COUNTRY_ID:
                 return{...state, countryById:action.payload}
                 case COUNTRY_NAME:
-            return{...state,render: 'countriesByName', countriesByName:action.payload, searchedValue: action.value, getFiltered:action.payload}
+                return{...state,render: 'countriesByName', countriesByName:action.payload, searchedValue: action.value, getFiltered:action.payload}
+       
         case RESET_FILTERS :
             return{
                 ...state,
@@ -38,7 +39,7 @@ const rootReducer=(state= initialState, action)=>{
                 countriesByName:[],
                 render:'allCountries',
                 searchedValue:'',
-				arrayOfFilters:[],
+				filters:{order:'',population:'', continent:'',activity:[]},
             }
 		case SORT_BY_NAME:
 			if(action.payload==="A"){
@@ -110,10 +111,10 @@ const rootReducer=(state= initialState, action)=>{
                         
                         if(action.payload==="allActivities"){
 
-                            const countriesByActivities= state.allCountries.filter((country)=>{return countryWithActivity.includes(country.id)})
+                            // const countriesByActivities= state.allCountries.filter((country)=>{return countryWithActivity.includes(country.id)})
                             
                             return{
-                                ...state, render:'activities',getFiltered: countriesByActivities 
+                                ...state, render:'activities'
                             }
                             
             
@@ -133,25 +134,55 @@ const rootReducer=(state= initialState, action)=>{
                         }
                         
                     }
-                    case ADD_FILTER_ARRAY:
-                        {console.log(action.payload);
-                        console.log(state.arrayFilters);
+                    case ADD_FILTER:
 
-                        if(!state.arrayFilters.includes(action.payload))
-                        {
-                    
+                    {
+                        console.log(action.property, action.payload);
+
+                        if(action.property==='order'){
+
+                            const value= action.payload ==='A' ? 'A-Z' : 'Z-A'
                             return{
                                 ...state,
-                                arrayFilters:[...state.arrayFilters, action.payload]
+                                filters:{...state.filters, population:'', order: value}
                             }
                         }
+                        else{
+                            if(action.property==='population'){
+                                return{
+                                    ...state,
+                                    filters:{...state.filters, order:'', population: action.payload}
+                                }
+                            }
+                            else{
+                                if(action.property==='continent' && action.payload != 'All'){
+
+                                    return{
+                                        ...state,
+                                        filters:{...state.filters, continent:action.payload}
+                                    }
+                                }
+                                else{
+                                    if(action.property==='activities' && action.payload != 'allActivities'){
+
+                                        const activities= state.filters.activity
+                                        if(!activities.includes(action.payload)){
+
+                                            console.log(action.property,action.payload);
+                                            return{
+                                                ...state,
+                                                filters:{...state.filters, activity:[...state.filters.activity, action.payload]}
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        
+                        }
+                    
                     }
                     break;
-                    case REMOVE_FILTER_ARRAY:
-                            return{
-                                ...state,
-                                arrayFilters:state.arrayFilters.filter((filter)=>filter!==action.payload)
-                            }
                             default: 
                             return {
                                 ...state

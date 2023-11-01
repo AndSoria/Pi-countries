@@ -4,9 +4,13 @@ const postActivity = require ('../Controllers/ActivitiesControllers/postActivity
 const activityHandler = async (req, res) => {
     try {
       const allActivities = await getActivities();
+      
       res.status(200).send(allActivities);
+
     } catch (error) {
-      res.status(500).json({ error: error.message });
+
+        console.log(error);
+      res.status(500).json({message:'Error en el servidor' });
     }
   };
   
